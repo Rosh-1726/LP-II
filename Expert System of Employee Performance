@@ -1,0 +1,47 @@
+ 
+#include <iostream> 
+using namespace std; 
+ 
+class EmployeePerformance { 
+public: 
+    string name; 
+    int tasksCompleted; 
+    int punctuality; // out of 10 
+    int teamwork;    // out of 10 
+ 
+    void acceptDetails() { 
+        cout << "Enter Employee Name: "; 
+        cin >> name; 
+        cout << "Number of tasks completed: "; 
+        cin >> tasksCompleted; 
+        cout << "Punctuality (out of 10): "; 
+        cin >> punctuality; 
+        cout << "Teamwork (out of 10): "; 
+        cin >> teamwork; 
+    } 
+ 
+    void evaluate() { 
+        int score = 0; 
+ 
+        if (tasksCompleted >= 20) score++; 
+        if (punctuality >= 8) score++; 
+        if (teamwork >= 8) score++; 
+ 
+        cout << "\nEvaluation Result for " << name << ":\n"; 
+        if (score == 3) 
+            cout << "Outstanding Performance!\n"; 
+        else if (score == 2) 
+            cout << "Good Performance.\n"; 
+        else if (score == 1) 
+            cout << "Needs Improvement.\n"; 
+        else 
+            cout << "Poor Performance. Needs Training.\n"; 
+    } 
+}; 
+ 
+int main() { 
+    EmployeePerformance emp; 
+    emp.acceptDetails(); 
+    emp.evaluate(); 
+    return 0; 
+} 
