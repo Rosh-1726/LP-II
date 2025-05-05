@@ -1,0 +1,37 @@
+
+# Menu and prices 
+menu = { 
+    "espresso": 150, 
+    "latte": 180, 
+    "cappuccino": 200, 
+    "americano": 170, 
+    "mocha": 220 
+} 
+ 
+# Payment options 
+payments = ["cash", "online", "upi", "card"] 
+ 
+def order_coffee(): 
+    print("\nWelcome to Yogesh Coffee Shop!\n") 
+     
+    # Show menu 
+    for item, price in menu.items(): 
+        print(f"{item.title()} - Rs.{price}") 
+     
+    # Choose coffee 
+    coffee = input("\nWhich coffee would you like? ").lower() 
+    while coffee not in menu: 
+        coffee = input("Not available. Choose again: ").lower() 
+     
+    # Choose payment 
+    payment = input("How would you like to pay? ").lower() 
+    while payment not in payments: 
+        payment = input("Invalid method. Choose again: ").lower() 
+     
+    # Final message 
+    print("\nPreparing your coffee...") 
+    print(f"\nYou ordered {coffee.title()} - Rs.{menu[coffee]}") 
+    print(f"Payment Method: {payment.title()}") 
+    print("Thank you for visiting ROSH Coffee Shop!") 
+ 
+order_coffee()
